@@ -1,0 +1,31 @@
+Test Command:
+#ob - v1
+java -classpath ./test_useobject-0.0.1.jar:./overloading-0.0.1.jar zxf.UseObject
+
+#ob - v2
+java -classpath ./test_useobject-0.0.1.jar:./overloading-0.0.2.jar zxf.UseObject
+
+#ob - v3
+java -classpath ./test_useobject-0.0.1.jar:./overloading-0.0.3.jar zxf.UseObject
+
+#str - v1
+java -classpath ./test_usestring-0.0.1.jar:./overloading-0.0.1.jar zxf.UseString
+
+#str - v2
+java -classpath ./test_usestring-0.0.1.jar:./overloading-0.0.2.jar zxf.UseString
+
+#str - v3
+java -classpath ./test_usestring-0.0.1.jar:./overloading-0.0.3.jar zxf.UseString
+
+Error Result:
+davis@davis-TM1703:~/Davis/zxf-java-compile/output$ #ob - v2
+davis@davis-TM1703:~/Davis/zxf-java-compile/output$ java -classpath ./test_useobject-0.0.1.jar:./overloading-0.0.2.jar zxf.UseObject
+Exception in thread "main" java.lang.NoSuchMethodError: zxf.OverLoading.staticOverloading(Ljava/lang/Object;)Ljava/lang/String;
+        at zxf.UseObject.main(UseObject.java:5)
+
+davis@davis-TM1703:~/Davis/zxf-java-compile/output$ #str - v1
+davis@davis-TM1703:~/Davis/zxf-java-compile/output$ java -classpath ./test_usestring-0.0.1.jar:./overloading-0.0.1.jar zxf.UseString
+Exception in thread "main" java.lang.NoSuchMethodError: zxf.OverLoading.staticOverloading(Ljava/lang/String;)Ljava/lang/String;
+
+
+
