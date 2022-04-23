@@ -1,0 +1,97 @@
+Command:
+java -classpath ./same-class-a-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+
+java -classpath ./same-class-b-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+
+java -classpath ./same-class-a-0.0.1.jar:./same-class-b-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+
+java -classpath ./same-class-b-0.0.1.jar:./same-class-a-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+
+
+java -classpath ./test-same-class-0.0.2-with-common.jar:./gson-2.8.6.jar zxf.Test
+
+java -classpath ./same-class-a-0.0.1.jar:./test-same-class-0.0.2-with-common.jar:./gson-2.8.6.jar zxf.Test
+
+java -classpath ./same-class-b-0.0.1.jar:./test-same-class-0.0.2-with-common.jar:./gson-2.8.6.jar zxf.Test
+
+
+Result:
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./same-class-a-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+Common in same-class-a
+000: Success
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./same-class-b-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+Common in same-class-b
+Exception in thread "main" java.lang.RuntimeException: Unable to invoke no-args constructor for interface java.io.Serializable. Registering an InstanceCreator with Gson for this type may fix this problem.
+        at com.google.gson.internal.ConstructorConstructor$14.construct(ConstructorConstructor.java:228)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:212)
+        at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:41)
+        at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:187)
+        at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:131)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:222)
+        at com.google.gson.Gson.fromJson(Gson.java:932)
+        at com.google.gson.Gson.fromJson(Gson.java:897)
+        at com.google.gson.Gson.fromJson(Gson.java:846)
+        at com.google.gson.Gson.fromJson(Gson.java:817)
+        at zxf.Test.main(Test.java:9)
+Caused by: java.lang.UnsupportedOperationException: Interface can't be instantiated! Interface name: java.io.Serializable
+        at com.google.gson.internal.UnsafeAllocator.assertInstantiable(UnsafeAllocator.java:117)
+        at com.google.gson.internal.UnsafeAllocator$1.newInstance(UnsafeAllocator.java:49)
+        at com.google.gson.internal.ConstructorConstructor$14.construct(ConstructorConstructor.java:225)
+        ... 11 more
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./same-class-a-0.0.1.jar:./same-class-b-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+Common in same-class-a
+000: Success
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./same-class-b-0.0.1.jar:./same-class-a-0.0.1.jar:./test-same-class-0.0.1-without-common.jar:./gson-2.8.6.jar zxf.Test
+Common in same-class-b
+Exception in thread "main" java.lang.RuntimeException: Unable to invoke no-args constructor for interface java.io.Serializable. Registering an InstanceCreator with Gson for this type may fix this problem.
+        at com.google.gson.internal.ConstructorConstructor$14.construct(ConstructorConstructor.java:228)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:212)
+        at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:41)
+        at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:187)
+        at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:131)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:222)
+        at com.google.gson.Gson.fromJson(Gson.java:932)
+        at com.google.gson.Gson.fromJson(Gson.java:897)
+        at com.google.gson.Gson.fromJson(Gson.java:846)
+        at com.google.gson.Gson.fromJson(Gson.java:817)
+        at zxf.Test.main(Test.java:9)
+Caused by: java.lang.UnsupportedOperationException: Interface can't be instantiated! Interface name: java.io.Serializable
+        at com.google.gson.internal.UnsafeAllocator.assertInstantiable(UnsafeAllocator.java:117)
+        at com.google.gson.internal.UnsafeAllocator$1.newInstance(UnsafeAllocator.java:49)
+        at com.google.gson.internal.ConstructorConstructor$14.construct(ConstructorConstructor.java:225)
+        ... 11 more
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./test-same-class-0.0.2-with-common.jar:./gson-2.8.6.jar zxf.Test
+Common in test-same-class
+000: Success
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./same-class-a-0.0.1.jar:./test-same-class-0.0.2-with-common.jar:./gson-2.8.6.jar zxf.Test
+Common in same-class-a
+000: Success
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$
+davis@davis-TM1703:~/Davis/zxf-java-compile/test-same-class/output$ java -classpath ./same-class-b-0.0.1.jar:./test-same-class-0.0.2-with-common.jar:./gson-2.8.6.jar zxf.Test
+Common in same-class-b
+Exception in thread "main" java.lang.RuntimeException: Unable to invoke no-args constructor for interface java.io.Serializable. Registering an InstanceCreator with Gson for this type may fix this problem.
+        at com.google.gson.internal.ConstructorConstructor$14.construct(ConstructorConstructor.java:228)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:212)
+        at com.google.gson.internal.bind.TypeAdapterRuntimeTypeWrapper.read(TypeAdapterRuntimeTypeWrapper.java:41)
+        at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:187)
+        at com.google.gson.internal.bind.MapTypeAdapterFactory$Adapter.read(MapTypeAdapterFactory.java:145)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$1.read(ReflectiveTypeAdapterFactory.java:131)
+        at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:222)
+        at com.google.gson.Gson.fromJson(Gson.java:932)
+        at com.google.gson.Gson.fromJson(Gson.java:897)
+        at com.google.gson.Gson.fromJson(Gson.java:846)
+        at com.google.gson.Gson.fromJson(Gson.java:817)
+        at zxf.Test.main(Test.java:9)
+Caused by: java.lang.UnsupportedOperationException: Interface can't be instantiated! Interface name: java.io.Serializable
+        at com.google.gson.internal.UnsafeAllocator.assertInstantiable(UnsafeAllocator.java:117)
+        at com.google.gson.internal.UnsafeAllocator$1.newInstance(UnsafeAllocator.java:49)
+        at com.google.gson.internal.ConstructorConstructor$14.construct(ConstructorConstructor.java:225)
+        ... 11 more

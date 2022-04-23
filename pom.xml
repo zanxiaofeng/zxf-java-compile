@@ -12,6 +12,9 @@
         <module>overloading</module>
         <module>test_usestring</module>
         <module>test_useobject</module>
+        <module>test-same-class</module>
+        <module>same-class-a</module>
+        <module>same-class-b</module>
     </modules>
 
     <build>
