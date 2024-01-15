@@ -9,7 +9,7 @@ public class Common {
     private Map<String, Serializable> properties;
 
     public Common(){
-        System.out.println("Common in same-class-b");
+        System.out.println("Common in same-class-b loaded by " + this.getClass().getClassLoader());
     }
 
     public String getCode() {
@@ -34,5 +34,9 @@ public class Common {
 
     public void setProperties(Map<String, Serializable> properties) {
         this.properties = properties;
+    }
+
+    static {
+        System.out.println("Static init of Common in same-class-b loaded by " + Thread.currentThread().getContextClassLoader());
     }
 }

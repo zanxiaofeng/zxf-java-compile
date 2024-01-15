@@ -16,6 +16,7 @@
         <module>same-class-a</module>
         <module>same-class-b</module>
         <module>test_static</module>
+        <module>test_dynamic_jar</module>
     </modules>
 
     <build>
