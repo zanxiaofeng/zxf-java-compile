@@ -13,6 +13,7 @@
         <module>test_usestring</module>
         <module>test_useobject</module>
         <module>test-same-class</module>
+        <module>same-class</module>
         <module>same-class-a</module>
         <module>same-class-b</module>
         <module>test_static</module>

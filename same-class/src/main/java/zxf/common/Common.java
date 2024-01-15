@@ -8,7 +8,7 @@ public class Common {
     private Map<String, Object> properties;
 
     public Common(){
-        System.out.println("Common in same-class-a loaded by " + this.getClass().getClassLoader());
+        System.out.println("Common in same-class loaded by " + this.getClass().getClassLoader());
     }
 
     public String getCode() {
@@ -36,6 +36,6 @@ public class Common {
     }
 
     static {
-        System.out.println("Static init of Common in same-class-a loaded by " + Common.class.getClassLoader());
+        System.out.println("Static init of Common in same-class loaded by " + Common.class.getClassLoader());
     }
 }

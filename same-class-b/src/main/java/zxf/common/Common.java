@@ -37,6 +37,6 @@ public class Common {
     }
 
     static {
-        System.out.println("Static init of Common in same-class-b loaded by " + Thread.currentThread().getContextClassLoader());
+        System.out.println("Static init of Common in same-class-b loaded by " + Common.class.getClassLoader());
     }
 }
